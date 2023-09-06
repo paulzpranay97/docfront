@@ -5,7 +5,7 @@ function Document() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-      axios.get('http://localhost:3000/api/templates') 
+      axios.get('https://docback-j3tg.onrender.com/api/templates') 
         .then((response) => setData(response.data))
         .catch((error) => console.error('Error fetching data:', error));
     }, []);
