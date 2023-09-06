@@ -2,18 +2,19 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './Component/Navbar';
 import Sidebar from './Component/Sidebar';
 import Document from './Component/Document';
-import Database from './Component/Database';
-import Sidebardb from './Component/Sidebardb';
+// import Database from './Component/Database';
+// import Sidebardb from './Component/Sidebardb';
 
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
  
-  const [showDatabase, setShowDatabase] = useState(false);
+  // const [showDatabase, setShowDatabase] = useState(false);
 
-  const handleLinkClick = (isDatabase) => {
-    setShowDatabase(isDatabase);
-  };
+  // const handleLinkClick = (isDatabase) => {
+  //   setShowDatabase(isDatabase);
+  // };
 
   const handleHamburgerClick = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -38,22 +39,19 @@ function App() {
     };
   }, []);
 
+  
+
+  const handleSearch = (results) => {
+    setSearchResults(results); // Update search results state
+  };
+
   return (
     <div className="App">
 
-<Navbar onLinkClick={handleLinkClick} />
-      {showDatabase ? (
-        <>
-          <Sidebardb />
-          <Database />
-        </>
-      ) : (
-        <>
+          <Navbar onSearch={handleSearch}/>
           <Sidebar isOpen={isSidebarOpen}/>
           <Document />
-          
-        </>
-      )}
+   
     </div>
   );
 }

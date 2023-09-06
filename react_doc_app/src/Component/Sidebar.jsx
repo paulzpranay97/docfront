@@ -16,7 +16,7 @@ const Sidebar = ({ isSidebarOpen, onHamburgerClick}) => {
     };
 
     useEffect(() => {
-        axios.get('https://docback-j3tg.onrender.com/api/templates') 
+        axios.get('http://localhost:3000/api/templates') 
           .then((response) => setData(response.data))
           .catch((error) => console.error('Error fetching data:', error));
       }, []);

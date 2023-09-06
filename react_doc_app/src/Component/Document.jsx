@@ -2,22 +2,19 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Document.css';
 function Document() {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState([]);
 
     useEffect(() => {
-      // Fetch data from your backend API using Axios
-      axios.get('https://docback-j3tg.onrender.com/api/templates') // Replace with your API endpoint
+      axios.get('http://localhost:3000/api/templates') 
         .then((response) => setData(response.data))
         .catch((error) => console.error('Error fetching data:', error));
     }, []);
 
 
-
-
-   
+  
     return (
       <div className="documentation">
-        {data ? (
+        {/* {data ? ( */}
           <div className="documentation-content">
             {data.map((template, templateIndex) => (
               <div className="template" key={templateIndex}>
@@ -84,12 +81,11 @@ function Document() {
               </div>
             ))}
           </div>
-        ) : (
-          <p>Loading...</p>
-        )}
+
       </div>
     );
     
+        
   }
   
   export default Document;
