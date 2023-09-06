@@ -14,7 +14,7 @@ const Navbar = ({ onHamburgerClick }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/search?query=${searchQuery}`);
+        const response = await axios.get(`https://docback-j3tg.onrender.com/api/search?query=${searchQuery}`);
         setSdata(response.data);
         setIsPopupOpen(true);
       } catch (error) {
